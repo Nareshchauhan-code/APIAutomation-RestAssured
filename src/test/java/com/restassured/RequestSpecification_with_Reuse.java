@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.with;
 
-public class RequestSpecificationwithReuse {
+public class RequestSpecification_with_Reuse {
     RequestSpecification requestSpecification;
 
     @BeforeClass
