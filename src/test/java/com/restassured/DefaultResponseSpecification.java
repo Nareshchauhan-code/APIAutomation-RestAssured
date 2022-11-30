@@ -2,7 +2,6 @@ package com.restassured;
 
 
 import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
@@ -13,9 +12,9 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.with;
 
-public class ResponseSpecificationBuilderDemo {
+public class DefaultResponseSpecification {
     RequestSpecification requestSpecification;
-   ResponseSpecification responseSpecification;
+
 
     @BeforeClass
     public void requestSpecificationReuse() {
@@ -29,7 +28,7 @@ public class ResponseSpecificationBuilderDemo {
         ResponseSpecBuilder responseSpecBuilder = new ResponseSpecBuilder();
         responseSpecBuilder.expectStatusCode(200).log(LogDetail.ALL);
 
-        responseSpecification=responseSpecBuilder.build();
+        RestAssured.responseSpecification=responseSpecBuilder.build();
     }
 
     @Test
@@ -37,8 +36,8 @@ public class ResponseSpecificationBuilderDemo {
 
 
         given().spec(requestSpecification).
-                when().get("/workspaces").
-                then().spec(responseSpecification);
+                when().get("/workspaces");
+
 
     }
 
@@ -46,8 +45,8 @@ public class ResponseSpecificationBuilderDemo {
     public void testRestAssured2() {
 
         given().spec(requestSpecification).
-                when().get("/workspaces").
-                then().spec(responseSpecification);
+                when().get("/workspaces");
+
 
     }
 
@@ -55,8 +54,7 @@ public class ResponseSpecificationBuilderDemo {
     public void testRestAssured3() {
 
         given().spec(requestSpecification).
-                when().get("/workspaces").
-                then().spec(responseSpecification);
+                when().get("/workspaces");
 
     }
 
@@ -65,8 +63,7 @@ public class ResponseSpecificationBuilderDemo {
 
 
         given(requestSpecification).
-                when().get("/workspaces").
-                then().spec(responseSpecification);
+                when().get("/workspaces");
 
     }
 }
