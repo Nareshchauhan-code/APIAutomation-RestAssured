@@ -16,7 +16,7 @@ import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class SendNestedJSONObject_as_Map {
+public class SerializeMaptoJSONObject {
 
 
     @BeforeClass
@@ -44,7 +44,10 @@ public class SendNestedJSONObject_as_Map {
 
         manObject.put("workspace", nextedObject);
 
-        given().body(manObject).
+        ObjectMapper objectMapper = new ObjectMapper();
+        String manObjectStr = objectMapper.writeValueAsString(manObject);
+
+        given().body(manObjectStr).
                 when().post("/workspaces").then().assertThat().
                 body("workspace.name", equalTo("NareshChauhan"));
 
