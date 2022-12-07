@@ -1,0 +1,111 @@
+Request method:	GET
+Request URI:	https://api.getpostman.com/workspaces
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		X-Api-Key=PMAK-63590fbcd307b504237e1884-daff29b7948d5c5f5f8256c0cd232e7dca
+				Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Wed, 07 Dec 2022 13:39:24 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: nginx
+x-frame-options: SAMEORIGIN
+Access-Control-Allow-Origin: *
+x-srv-trace: v=1;t=53c5758e3d0a03c5
+x-srv-span: v=1;s=a29e972c911d84c8
+X-RateLimit-Limit: 300
+X-RateLimit-Remaining: 298
+X-RateLimit-Reset: 1670420374
+ETag: W/"5ae-GRxnyjaSa1DrEMmBo+vESXgQsec"
+Vary: Accept-Encoding
+Content-Encoding: gzip
+
+{
+    "workspaces": [
+        {
+            "id": "e99075e2-a85c-450c-88ee-5ee839a74d17",
+            "name": "My Workspace",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "4a01ce41-045f-472a-8b64-32bf9740845f",
+            "name": "Team Workspace",
+            "type": "team",
+            "visibility": "team"
+        },
+        {
+            "id": "371874ac-50d7-44f7-bddd-93717b7b3057",
+            "name": "RestAssured",
+            "type": "team",
+            "visibility": "team"
+        },
+        {
+            "id": "e644b7cf-b545-4b34-9f94-97eae505e922",
+            "name": "MyWorkSpaces",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "10576d2d-a047-4fd4-bd16-967d551e35d8",
+            "name": "MyWorkSpaces",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "e94116cb-179a-40a3-a3b6-b94d95344db2",
+            "name": "MyWorkSpaces4",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "89114d0d-7f69-4cb8-a1cc-ae1c9c9d7df7",
+            "name": "MyWorkSpaces4",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "adbfe277-8143-4091-9364-580644c17bf6",
+            "name": "MyObjectWorkSpaces",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "ace38c5f-804b-42a9-b9ab-c01568542aa3",
+            "name": "MyObjectWorkSpaces",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "5a14e046-a90b-4d4b-b796-6e6f6f8d52b4",
+            "name": "MyObjectWorkSpaces",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "9c95610b-605b-4dc3-bccb-bad4ce320763",
+            "name": "MyWorkSpaces4",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "a4c1cff3-d311-43ae-89d6-81e63eb15004",
+            "name": "MyWorkSpaces4",
+            "type": "personal",
+            "visibility": "personal"
+        },
+        {
+            "id": "63b48e57-2b0c-467a-86ec-ca34dd9f3408",
+            "name": "MyWorkSpaces4",
+            "type": "personal",
+            "visibility": "personal"
+        }
+    ]
+}
