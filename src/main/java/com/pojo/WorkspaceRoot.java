@@ -6,6 +6,9 @@ public class WorkspaceRoot {
         this.workspace = workspace;
     }
 
+    public WorkspaceRoot() {
+    }
+
     private Workspace workspace;
 
     public Workspace getWorkspace() {

@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class POJODeSerialize {
@@ -37,9 +38,12 @@ public class POJODeSerialize {
         Workspace workspace = new Workspace("NareshPOJO", "personal", "Resassured");
         WorkspaceRoot workspaceRoot = new WorkspaceRoot(workspace);
 
-        given().body(workspaceRoot).
-                when().post("/workspaces").then().assertThat().
-                body("workspace.name", equalTo("NareshPOJO"));
+        WorkspaceRoot deserilizedWorkspace = given().body(workspaceRoot).
+                when().post("/workspaces").then().extract().response().as(WorkspaceRoot.class);
+
+        assertThat(deserilizedWorkspace.getWorkspace().getName(),equalTo(workspaceRoot.getWorkspace().getName()));
+
+
 
 
     }
