@@ -1,0 +1,59 @@
+package com.restassuredautomation;
+
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.pojo.Workspace;
+import com.pojo.WorkspaceRoot;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.http.ContentType;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
+public class POJOParameterizeTestsusingTestNGDataProvider {
+
+
+    @BeforeClass
+    public void requestSpecificationReuse() {
+        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder().
+                setBaseUri("https://api.getpostman.com").
+                addHeader("X-Api-Key", "PMAK-63590fbcd307b504237e1884-daff29b7948d5c5f5f8256c0cd232e7dca").
+                setContentType(ContentType.JSON);
+        RestAssured.requestSpecification = requestSpecBuilder.build();
+
+        ResponseSpecBuilder responseSpecBuilder = new ResponseSpecBuilder();
+        responseSpecBuilder.expectStatusCode(200).expectContentType(ContentType.JSON).log(LogDetail.ALL);
+        RestAssured.responseSpecification = responseSpecBuilder.build();
+    }
+
+    @Test(dataProvider = "workspace")
+    public void testRestAssured1(String name, String type, String description) throws JsonProcessingException {
+
+        Workspace workspace = new Workspace(name, type, description);
+        WorkspaceRoot workspaceRoot = new WorkspaceRoot(workspace);
+
+        WorkspaceRoot deserilizedWorkspace = given().body(workspaceRoot).
+                when().post("/workspaces").then().extract().response().as(WorkspaceRoot.class);
+
+        assertThat(deserilizedWorkspace.getWorkspace().getName(), equalTo(workspaceRoot.getWorkspace().getName()));
+
+
+    }
+
+    @DataProvider(name = "workspace")
+    public Object[][] getWorksapce() {
+
+        return new Object[][]{
+                {"DataProviderNaresh", "personal", "description"},
+                {"DataProviderPojo", "personal", "description"}
+        };
+
+    }
+}
